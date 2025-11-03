@@ -1,0 +1,100 @@
+"""
+LEGAL DOCUMENT ANALYZER - KEY INTEGRATION POINTS
+===============================================
+
+This file outlines the key integration points for incorporating the Legal Document Analyzer
+features into your existing LegalKlarity content analyzer.
+
+MAIN ENHANCEMENTS TO ADD:
+========================
+
+1. COMPREHENSIVE DOCUMENT ANALYSIS
+---------------------------------
+Current LegalKlarity provides basic summary, benefits, risks.
+Legal Document Analyzer provides 12 categories:
+- Summary (enhanced)
+- Key Terms
+- Main Clauses
+- Critical Dates
+- Parties
+- Jurisdiction
+- Obligations
+- Risks (enhanced)
+- Recommendations
+- Missing Clauses
+- Compliance Issues
+- Next Steps
+
+2. STRUCTURED JSON RESPONSE
+---------------------------
+Current: Basic text responses
+Enhanced: Consistent JSON structure for all 12 categories
+
+3. INTERACTIVE DOCUMENT CHAT
+----------------------------
+New feature: Allow users to ask questions about documents
+
+4. IMPROVED PROMPT ENGINEERING
+-----------------------------
+Current: Simple prompts
+Enhanced: Detailed prompts with explicit output requirements
+
+INTEGRATION STEPS:
+=================
+
+1. UPDATE ENVIRONMENT VARIABLES
+------------------------------
+Add to .env file:
+GOOGLE_CLOUD_PROJECT=your-project-id
+GOOGLE_CLOUD_LOCATION=us-central1
+
+2. INSTALL DEPENDENCIES
+-----------------------
+pip install google-cloud-aiplatform
+
+3. ENHANCE ANALYSIS FUNCTION
+----------------------------
+Replace basic analysis with comprehensive 12-category analysis:
+
+def analyze_legal_document(text):
+    prompt = '''
+    Analyze this document and provide exactly this JSON structure:
+    {
+        "summary": "2-3 sentence overview",
+        "key_terms": [{"term": "...", "definition": "..."}],
+        "main_clauses": [{"name": "...", "description": "..."}],
+        "critical_dates": [{"date": "...", "event": "..."}],
+        "parties": [{"name": "...", "role": "..."}],
+        "jurisdiction": "...",
+        "obligations": [{"party": "...", "responsibility": "..."}],
+        "risks": [{"risk": "...", "severity": "...", "description": "..."}],
+        "recommendations": ["..."],
+        "missing_clauses": [{"clause": "...", "importance": "..."}],
+        "compliance_issues": [{"issue": "...", "regulation": "..."}],
+        "next_steps": ["..."]
+    }
+    
+    Document: {text}
+    '''
+    # Use Gemini with this prompt
+
+4. ADD CHAT FUNCTIONALITY
+-------------------------
+@app.route("/chat", methods=["POST"])
+def document_chat():
+    # Allow questions about documents
+
+5. UPDATE FRONTEND DISPLAY
+--------------------------
+- Add tabs for each analysis category
+- Display all 12 categories of information
+- Add chat interface
+
+BENEFITS OF INTEGRATION:
+=======================
+1. More comprehensive analysis for users
+2. Better structured data for frontend
+3. Enhanced user experience with detailed insights
+4. Interactive document exploration
+5. Professional legal document review capabilities
+"""

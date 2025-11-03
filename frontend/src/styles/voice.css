@@ -1,0 +1,41 @@
+/* styles/voice.css */
+
+.voice-recorder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+.voice-recorder-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.voice-recorder-timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.voice-recorder-waveform {
+  width: 100%;
+  height: 100px;
+  background-color: #f3f4f6;
+  border-radius: 0.25rem;
+}
+
+.voice-recorder-transcript {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  background-color: white;
+  font-size: 0.875rem;
+  color: #374151;
+}

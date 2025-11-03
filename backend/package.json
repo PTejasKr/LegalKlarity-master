@@ -1,0 +1,51 @@
+{
+  "name": "legalklarity-backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc --project tsconfig.build.json && npm run copy-service-account",
+    "copy-service-account": "node -e \"const fs = require('fs'); const path = require('path'); let src = 'legalklarity-firebase-adminsdk-fbsvc-554b402110.json'; const dest = 'dist/db/serviceAccountKey.json'; const destDir = path.dirname(dest); if (!fs.existsSync(src)) { console.log('Service account key file not found in root, checking src directory'); src = 'src/db/serviceAccountKey.json'; if (!fs.existsSync(src)) { console.log('Service account key file not found in src either, skipping copy'); } else { if (!fs.existsSync(destDir)) { fs.mkdirSync(destDir, { recursive: true }); } fs.copyFileSync(src, dest); console.log('Service account key file copied to dist directory'); } } else { if (!fs.existsSync(destDir)) { fs.mkdirSync(destDir, { recursive: true }); } fs.copyFileSync(src, dest); console.log('Service account key file copied to dist directory'); }\" || echo \"Failed to copy service account key file\"",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "start:server": "node dist/index.js",
+    "test:firebase": "ts-node test-firebase.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.15.21",
+    "@types/ws": "^8.18.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@google-cloud/speech": "^6.7.0",
+    "@google-cloud/text-to-speech": "^5.5.0",
+    "@google-cloud/translate": "^9.2.0",
+    "@google/generative-ai": "^0.24.1",
+    "@neondatabase/serverless": "^1.0.0",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.2",
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0",
+    "firebase-functions": "^6.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2"
+  },
+  "engines": {
+    "node": "18"
+  }
+}

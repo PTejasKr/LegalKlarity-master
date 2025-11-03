@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: legalklarity-backend
+    env: docker
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run build && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: FRONTEND_URL
+        value: https://legalklarity.netlify.app
+      - key: CONTENT_ANALYZER_URL
+        value: https://legalklarity-content-analyzer.up.railway.app
+      - key: USE_MOCK_API
+        value: false

@@ -1,0 +1,140 @@
+/* styles/collaboration.css */
+
+.collaboration-container {
+  display: flex;
+  height: 100%;
+}
+
+.collaboration-document-view {
+  flex-grow: 1;
+  position: relative;
+  background-color: #f9fafb;
+  overflow: hidden;
+}
+
+.collaboration-panel {
+  width: 20rem;
+  background-color: white;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.collaboration-panel-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collaboration-panel-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.collaboration-user-list {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.collaboration-comments {
+  padding: 1rem;
+}
+
+.collaboration-comment-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.collaboration-comment-input textarea {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  resize: none;
+}
+
+.collaboration-comment-input button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.collaboration-comment-input button:hover {
+  background-color: #2563eb;
+}
+
+.collaboration-comment {
+  padding: 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.collaboration-comment:hover {
+  background-color: #f9fafb;
+}
+
+.collaboration-comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.collaboration-comment-author {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.collaboration-comment-time {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.collaboration-comment-text {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.collaboration-user-cursor {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.collaboration-user-cursor-label {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.collaboration-comment-pin {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9;
+}

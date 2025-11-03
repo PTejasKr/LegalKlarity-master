@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Global font settings for LegalKlarity */
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #374151;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Dark mode body */
+  .dark body {
+    color: #d1d5db;
+    background-color: #0f172a;
+  }
+  
+  /* Headings use Inter with refined hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111827;
+  }
+  
+  .dark h1, 
+  .dark h2, 
+  .dark h3, 
+  .dark h4, 
+  .dark h5, 
+  .dark h6 {
+    color: #f1f5f9;
+  }
+  
+  h1 {
+    font-weight: 800;
+  }
+  
+  /* Display headings with Playfair Display */
+  .display-font {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  
+  /* Professional button and form styling */
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+  
+  /* Improved readability for legal content */
+  .legal-content {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+  }
+  
+  /* Professional table styling */
+  table {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Focus styles */
+  :focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Custom utility classes */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  
+  .font-ui {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-data {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+  }
+  
+  /* Card component */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden;
+  }
+  
+  .dark .card {
+    @apply bg-slate-800 border-slate-700;
+  }
+  
+  .card-hover {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition;
+  }
+  
+  .dark .card-hover {
+    @apply bg-slate-800 border-slate-700 hover:shadow-lg;
+  }
+  
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .dark .btn {
+    @apply focus:ring-offset-slate-900;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .btn-outline {
+    @apply btn border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-primary-500;
+  }
+  
+  .dark .btn-outline {
+    @apply border-slate-600 text-slate-200 hover:bg-slate-800 focus:ring-primary-500;
+  }
+  
+  .btn-ghost {
+    @apply btn text-gray-700 hover:bg-gray-100 focus:ring-primary-500;
+  }
+  
+  .dark .btn-ghost {
+    @apply text-slate-200 hover:bg-slate-800 focus:ring-primary-500;
+  }
+  
+  /* Form elements */
+  .input {
+    @apply block w-full rounded-lg border border-gray-300 bg-white py-2 px-3 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm;
+  }
+  
+  .dark .input {
+    @apply bg-slate-800 border-slate-600 text-slate-100 focus:border-primary-500 focus:ring-primary-500;
+  }
+  
+  .input-error {
+    @apply input border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500;
+  }
+  
+  .dark .input-error {
+    @apply border-red-500 text-red-300 placeholder-red-400;
+  }
+  
+  /* Badge component */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+  
+  .dark .badge-primary {
+    @apply bg-primary-900 text-primary-200;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-800;
+  }
+  
+  .dark .badge-secondary {
+    @apply bg-secondary-900 text-secondary-200;
+  }
+  
+  /* Alert component */
+  .alert {
+    @apply rounded-lg p-4;
+  }
+  
+  .alert-info {
+    @apply alert bg-blue-50 text-blue-800;
+  }
+  
+  .dark .alert-info {
+    @apply bg-blue-900 text-blue-200;
+  }
+  
+  .alert-success {
+    @apply alert bg-green-50 text-green-800;
+  }
+  
+  .dark .alert-success {
+    @apply bg-green-900 text-green-200;
+  }
+  
+  .alert-warning {
+    @apply alert bg-yellow-50 text-yellow-800;
+  }
+  
+  .dark .alert-warning {
+    @apply bg-yellow-900 text-yellow-200;
+  }
+  
+  .alert-error {
+    @apply alert bg-red-50 text-red-800;
+  }
+  
+  .dark .alert-error {
+    @apply bg-red-900 text-red-200;
+  }
+}
