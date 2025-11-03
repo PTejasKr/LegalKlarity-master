@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+out/
+
+# Log files
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Firebase service account keys
+src/db/serviceAccountKey.json
+*serviceAccountKey.json
+*firebase-adminsdk*.json
+
+# Firebase functions
+.firebase/
+firebase-debug.log*
+
+# Deployment documentation
+DEPLOYMENT_SUMMARY.md
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Railway configuration (this is at repo root)
+../railway.json

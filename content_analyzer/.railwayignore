@@ -1,0 +1,10 @@
+# Ignore cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Ignore test files
+test*

@@ -1,0 +1,42 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Log files
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Firebase service account keys
+*serviceAccountKey.json
+*firebase-adminsdk*.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary directories
+temp/
+public/temp/

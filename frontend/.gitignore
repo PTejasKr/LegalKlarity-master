@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+out/
+
+# Log files
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Firebase service account keys (if any)
+*serviceAccountKey.json
+*firebase-adminsdk*.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Deployment documentation
+DEPLOYMENT.md
