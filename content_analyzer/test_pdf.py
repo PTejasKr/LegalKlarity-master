@@ -23,8 +23,7 @@ try:
                 # This is a simplified version of what extract_pdf does
                 import pdfplumber
                 with pdfplumber.open(f) as pdf:
-                    text = "
-".join([p.extract_text() for p in pdf.pages])
+                    text = "\n".join([p.extract_text() or "" for p in pdf.pages])
                     print(f"Extracted text length: {len(text)}")
                     print(f"First 200 characters: {text[:200]}")
             except Exception as e:
