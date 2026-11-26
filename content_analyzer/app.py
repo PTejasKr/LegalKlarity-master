@@ -300,8 +300,13 @@ def analyze_legal_document(text, document_type=None):
             }
         )
         
-        # Parse and validate JSON response
-        analysis = json.loads(response.text)
+        # Parse and validate JSON response (strip optional markdown fences)
+        raw_text = (response.text or "").strip()
+        if raw_text.startswith("```"):
+            raw_text = raw_text.split("\n", 1)[-1]
+            if raw_text.endswith("```"):
+                raw_text = raw_text[:-3].strip()
+        analysis = json.loads(raw_text)
         
         # If learning is available, enhance the analysis
         if LEARNING_AVAILABLE:
